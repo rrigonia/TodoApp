@@ -1,22 +1,18 @@
 import { Divider, List, Paper } from "@material-ui/core";
-import React from "react";
+import React, { useContext } from "react";
 import TodoItem from "./TodoItem";
 import { v4 as uuid } from "uuid";
+import { TodosContext } from "./contexts/todosContex";
 
-function TodoList({ todos, editTodo, deleteTodo, toggleComplete }) {
+function TodoList() {
+	const { todos } = useContext(TodosContext);
 	if (todos.length)
 		return (
 			<Paper>
 				<List>
 					{todos.map((todo, idx) => (
 						<React.Fragment key={uuid()}>
-							<TodoItem
-								key={todo.id}
-								{...todo}
-								editTodo={editTodo}
-								deleteTodo={deleteTodo}
-								toggleComplete={toggleComplete}
-							/>
+							<TodoItem key={todo.id} {...todo} />
 							{idx < todos.length - 1 && <Divider />}
 						</React.Fragment>
 					))}

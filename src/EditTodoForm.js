@@ -1,10 +1,12 @@
 import { IconButton, TextField } from "@material-ui/core";
 import DoneIcon from "@material-ui/icons/Done";
 import CloseIcon from "@material-ui/icons/Close";
-import React from "react";
+import React, { useContext } from "react";
 import useFormState from "./hooks/useFormState";
+import { TodosContext } from "./contexts/todosContex";
 
-function EditTodoForm({ id, task, toggleEditForm, editTodo }) {
+function EditTodoForm({ id, task, toggleEditForm }) {
+	const { editTodo } = useContext(TodosContext);
 	const [ value, handleChange, reset ] = useFormState(task);
 	const handleSubmit = e => {
 		e.preventDefault();
