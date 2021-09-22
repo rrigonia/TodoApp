@@ -1,11 +1,11 @@
-import { Divider, List, Paper } from "@material-ui/core";
-import React, { useContext } from "react";
-import TodoItem from "./TodoItem";
-import { v4 as uuid } from "uuid";
-import { TodosContext } from "./contexts/todosContex";
+import { Divider, List, Paper } from '@material-ui/core';
+import React from 'react';
+import TodoItem from './TodoItem';
+import { v4 as uuid } from 'uuid';
+import { useTodos } from './contexts/todosContex';
 
 function TodoList() {
-	const { todos } = useContext(TodosContext);
+	const { todos } = useTodos();
 	if (todos.length)
 		return (
 			<Paper>

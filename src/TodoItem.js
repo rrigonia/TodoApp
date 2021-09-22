@@ -8,12 +8,12 @@ import {
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import { useContext } from "react";
-import { TodosContext } from "./contexts/todosContex";
+import { useTodos } from "./contexts/todosContex";
 import EditTodoForm from "./EditTodoForm";
 import useToggle from "./hooks/useToggle";
 
 function TodoItem({ id, task, completed }) {
-	const { deleteTodo, toggleTodo } = useContext(TodosContext);
+	const { deleteTodo, toggleTodo } = useTodos();
 	const [ isEditing, toggle ] = useToggle();
 	const handleDelete = e => {
 		e.preventDefault();
