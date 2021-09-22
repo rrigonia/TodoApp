@@ -7,13 +7,12 @@ import {
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import { useContext } from "react";
-import { useTodos } from "./contexts/todosContex";
+import { useDispatch } from "./contexts/todosContex";
 import EditTodoForm from "./EditTodoForm";
 import useToggle from "./hooks/useToggle";
 
 function TodoItem({ id, task, completed }) {
-	const { deleteTodo, toggleTodo } = useTodos();
+	const { deleteTodo, toggleTodo } = useDispatch();
 	const [ isEditing, toggle ] = useToggle();
 	const handleDelete = e => {
 		e.preventDefault();

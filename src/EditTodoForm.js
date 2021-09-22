@@ -3,10 +3,10 @@ import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
 import React from 'react';
 import useFormState from './hooks/useFormState';
-import { useTodos } from './contexts/todosContex';
+import { useDispatch } from './contexts/todosContex';
 
 function EditTodoForm({ id, task, toggleEditForm }) {
-	const { editTodo } = useTodos();
+	const { editTodo } = useDispatch();
 	const [ value, handleChange, reset ] = useFormState(task);
 	const handleSubmit = e => {
 		e.preventDefault();

@@ -1,11 +1,11 @@
 import { Paper, TextField } from '@material-ui/core';
 import React from 'react';
-import { useTodos } from './contexts/todosContex';
+import { useDispatch } from './contexts/todosContex';
 import useFormState from './hooks/useFormState';
 
 function TodoForm() {
 	const [ todoInput, updateTodoInput, resetTodoInput ] = useFormState('');
-	const { addTodo } = useTodos();
+	const { addTodo } = useDispatch();
 	const handleAdd = evt => {
 		evt.preventDefault();
 		addTodo(todoInput);
